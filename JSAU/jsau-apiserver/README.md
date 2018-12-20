@@ -2,7 +2,7 @@
 
 # DEMARAGE DU SERVEUR
 
-- Vous avez trois dossiers,il suffit de se placer à l'une et taper `npm start` par lancer une application
+Vous avez trois dossiers,il suffit de se placer à l'une et taper `npm start` par lancer une application
 
 - **JSAU-APISERVER**
 - **JSAU-DESKTOP** 
