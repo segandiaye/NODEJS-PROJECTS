@@ -1,2 +1,2 @@
-# NJSAU-DESKTOP.
-#
+# NJSAU-DESKTOP
+
