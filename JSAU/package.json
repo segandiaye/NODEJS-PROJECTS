@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "clean": "echo 'TODO: Implement this script'",
-    "build:js": "browserify ./src/resource/js/main.js > ./src/resource/js/bundle2.js"
+    "build:js": "browserify ./src/resource/js/main.js > ./src/resource/js/bundle.js"
   },
   "author": "NDIAYE SEGA",
   "license": "ISC",
