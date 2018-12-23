@@ -21,7 +21,6 @@ Vous avez trois dossiers,il suffit de se placer à l'une et taper `npm start` pa
 
 ********************`LISTER LES MATIERES`**********************************************
 curl GET http://localhost:8080/api/listAll
-
 # 
 ********************`AJOUTER UNE MATIERE`**********************************************
 curl -X POST ttp://localhost:8080/api/add -F comment='{"who":"some_one", "desc":"get it"}'
@@ -32,8 +31,7 @@ curl GET http://localhost:8080/api/detail/:id, id=identifiant de la matiere
 
 # 
 ********************`MODIFIER UNE MATIERE`*********************************************
-Pcurl -X PUT http://localhost:8080/api/update/:id, id=identifiant de la matiere
-
+curl -X PUT http://localhost:8080/api/update/:id, id=identifiant de la matiere
 # 
 ********************`SUPPRIMER UNE MATIERE`********************************************
 curl -X DELETE DELETE http://localhost:8080/api/delete/:id, id=identifiant de la matiere
