@@ -4,4 +4,5 @@
 # CONSIGNES A LIRE
 
 `NB` Merci de bien lire les readme de chaque application avant de commencer.
+`Tapez npm install dans chaque application` 
 
