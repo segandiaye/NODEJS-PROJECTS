@@ -16,8 +16,8 @@ const writeFile = util.promisify(fs.writeFile)
 const urlencodedParser = bodyParser.urlencoded({extended: true})
 
 app.use(express.static(path.join(__dirname, '/')))
-//*************INITIALISATION DE LA VARIABLE USER********************//
-let user = {
+//*************INITIALISATION DE LA VARIABLE matiere********************//
+let matiere = {
     name : '',
     id : 0
 }
@@ -75,11 +75,11 @@ app.post('/add', urlencodedParser, (req, res) => {
             if (obj.length > 0) {
                 inc = obj[obj.length - 1].id + 1
             }
-            user = {
+            matiere = {
                 name : '' + req.body.name,
                 id : inc
             }
-            obj[inc] = user
+            obj[inc] = matiere
             let json = JSON.stringify(obj)
             /*ECRITURE DANS LE FICHIER JSON*/
             writeFile('./data/data.json', json)
@@ -107,18 +107,18 @@ app.put('/update/:id', urlencodedParser, (req, res) => {
         .then((obj) => {
             const requestId = req.params.id
 
-            let user_ = obj.filter((user_) => {
-                return user_.id == requestId
+            let matiere_ = obj.filter((matiere_) => {
+                return matiere_.id == requestId
             })[0]
 
-            const index = obj.indexOf(user_)
+            const index = obj.indexOf(matiere_)
 
             const keys = Object.keys(req.body)
 
             keys.forEach((key) => {
-                user_[key] = req.body[key]
+                matiere_[key] = req.body[key]
             })
-            obj[index] = user_
+            obj[index] = matiere_
             let json = JSON.stringify(obj)
             /*ECRITURE DANS LE FICHIER JSON*/
             writeFile('./data/data.json', json)

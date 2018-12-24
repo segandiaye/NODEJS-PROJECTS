@@ -44,7 +44,7 @@ app.use(cors())
 app.options('*', cors())
 //**************FIN CROSS ORIGIN*************************//
 
-let user = {
+let matiere = {
     name : '',
     id: 0
 }
@@ -84,7 +84,7 @@ app.get('/accueil', (req, res) => {
     readFile('./src/resource/data/data.json', {encoding: 'utf8'})
         .then(JSON.parse)
         .then((obj) => {
-            res.render(path.join(__dirname, '/resource/views/index.ejs'), {users:obj, user, smsModif, color, edit, style})
+            res.render(path.join(__dirname, '/resource/views/index.ejs'), {matieres:obj, matiere, smsModif, color, edit, style})
         })
         .catch((err) => {
         //console.error("Some error occurred", err)
@@ -102,18 +102,18 @@ app.post('/add', urlencodedParser, (req, res) => {
             if (obj.length > 0) {
                 inc = obj[obj.length - 1].id + 1
             }
-            user = {
+            matiere = {
                 name : '' + req.body.name,
                 id: inc
             }
-            obj.push(user)
+            obj.push(matiere)
             let json = JSON.stringify(obj)
             color = 'color:green'
             smsModif = 'Opération éffectuée.'
             /*ECRITURE DANS LE FICHIER JSON*/
             writeFile('./src/resource/data/data.json', json)
                 .then(() => {
-                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {users:obj, user, smsModif, color, edit, style})
+                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {matieres:obj, matiere, smsModif, color, edit, style})
                 })
                 .catch((err) => {
                 })
@@ -133,13 +133,13 @@ app.get('/detail/:id', (req, res) => {
     readFile('./src/resource/data/data.json', {encoding: 'utf8'})
         .then(JSON.parse)
         .then((obj) => {
-            user = []
+            matiere = []
             for (let i = 0;i < obj.length;i++) {
                 if (obj[i].id == req.params.id) {
-                    user = obj[i]
+                    matiere = obj[i]
                 }
             }
-            res.render(path.join(__dirname, '/resource/views/index.ejs'), {users : obj, user, smsModif, color, edit, style})
+            res.render(path.join(__dirname, '/resource/views/index.ejs'), {matieres : obj, matiere, smsModif, color, edit, style})
         })
         .catch((err) => {
         //console.error("Some error occurred", err)
@@ -155,27 +155,27 @@ app.put('/update/:id', urlencodedParser, (req, res) => {
         .then((obj) => {
             const requestId = req.params.id
 
-            let user_ = obj.filter((user_) => {
-                return user_.id == requestId
+            let matiere_ = obj.filter((matiere_) => {
+                return matiere_.id == requestId
             })[0]
 
-            const index = obj.indexOf(user_)
+            const index = obj.indexOf(matiere_)
 
             const keys = Object.keys(req.body)
 
             keys.forEach((key) => {
-                user_[key] = req.body[key]
+                matiere_[key] = req.body[key]
             })
-            obj[index] = user_
+            obj[index] = matiere_
             color = 'color:green'
             smsModif = 'Modification éffectuée.'
-            user = obj[index]
+            matiere = obj[index]
             let json = JSON.stringify(obj)
             /*ECRITURE DANS LE FICHIER JSON*/
             writeFile('./src/resource/data/data.json', JSON.stringify(json))
                 .then(() => {
                     edit = false
-                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {users : obj, user, smsModif, color, edit, style})
+                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {matieres : obj, matiere, smsModif, color, edit, style})
                 })
                 .catch((err) => {
                 })
@@ -201,7 +201,7 @@ app.delete('/delete/:id', (req, res) => {
                 .then(() => {
                     color = 'color:green'
                     smsModif = 'Opération éffectuée.'
-                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {users:obj, user, smsModif, color, edit, style})
+                    res.render(path.join(__dirname, '/resource/views/index.ejs'), {matieres:obj, matiere, smsModif, color, edit, style})
                 })
                 .catch((err) => {
                 })

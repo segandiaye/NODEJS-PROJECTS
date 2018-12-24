@@ -18,7 +18,7 @@
 		<div style='text-align:center'>
       <% if(!edit) {%>
   			<form action='/add' id="form" method='post' name='form1'>
-  				Matière : <input type= 'text' id="id_name" onfocus="this.value=''" name='name' value='<%= user.name %>'>&nbsp;&nbsp;
+  				Matière : <input type= 'text' id="id_name" onfocus="this.value=''" name='name' value='<%= matiere.name %>'>&nbsp;&nbsp;
   				<span style='<%= color %>'><%= smsModif %></span>
   				<br/>
   				<br/>
@@ -30,8 +30,8 @@
       <% } %>
       <%  if(edit) {%>
         <div style='text-align:center'>
-            <form method="POST" action='/update/<%= user.id %>' enctype="application/x-www-form-urlencoded">
-              Matière : <input type= 'text' id="id_name" onfocus="this.value=''" name='name' value='<%= user.name %>'>&nbsp;&nbsp;
+            <form method="POST" action='/update/<%= matiere.id %>' enctype="application/x-www-form-urlencoded">
+              Matière : <input type= 'text' id="id_name" onfocus="this.value=''" name='name' value='<%= matiere.name %>'>&nbsp;&nbsp;
               <span style='<%= color %>'><%= smsModif %></span>
               <br/>
               <br/>
@@ -56,18 +56,18 @@
               </tr>
             </thead>
           <tbody>
-            <% for(var i=0; i<users.length; i++) {%>
+            <% for(var i=0; i<matieres.length; i++) {%>
               <tr>
                 <td>
-                  <span style="color:blue"><%= users[i].name %></span>
+                  <span style="color:blue"><%= matieres[i].name %></span>
                 </td>
                 <td>
-                  <form method="GET" action='/detail/<%= users[i].id %>'>
+                  <form method="GET" action='/detail/<%= matieres[i].id %>'>
                     <button type="submit">éditer</button>
                   </form>
                 </td>
                 <td>
-                  <form method="POST" action='/delete/<%= users[i].id %>' enctype="application/x-www-form-urlencoded">
+                  <form method="POST" action='/delete/<%= matieres[i].id %>' enctype="application/x-www-form-urlencoded">
                     <input type="hidden" name="_method" value="DELETE">
                     <button type="submit">supprimer</button>
                   </form>
