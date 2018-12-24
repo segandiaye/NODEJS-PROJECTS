@@ -27,7 +27,7 @@ curl GET http://localhost:8080/api/listAll
 # 
 ********************`AJOUTER UNE MATIERE`**********************************************
 # 
-curl -X POST http://localhost:8080/api/add -F comment='{"who":"some_one", "desc":"get it"}'
+curl -X POST http://localhost:8080/api/add -F user='{"who":"some_one", "desc":"get it"}'
 # 
 curl -H "Content-Type: application/json" -X POST -d '{"name":"SEGA","id":6}' http://localhost:8080/api/add
 # 
