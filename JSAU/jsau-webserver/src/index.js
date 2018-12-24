@@ -15,6 +15,9 @@ const path = require('path')
 const util = require('util')
 const readFile = util.promisify(fs.readFile)
 const writeFile = util.promisify(fs.writeFile)
+/***************D3 VARIABLES*****************/
+let fixtureData = require('./resource/data/d3.json');
+app.locals.barChartHelper = require('./resource/js/bar_chart_helper');
 //const opener = require('opener')
 /*LE BODYPARSER*/
 const urlencodedParser = bodyParser.urlencoded({extended: true})
@@ -50,6 +53,7 @@ let edit = false
 let color = ''
 let style = {
     style : 'style.css',
+    d3 : 'd3.css',
     img : 'logo.jpg'
 }
 /****************LES 100 NOMBRE PREMIERS***********************************/
@@ -59,6 +63,11 @@ let even_numbers = my_shared_code_headless.premiersNumbers(100)
 //*************AFORMULAIRE DE TEST DES METHODES OVERRIDES********************//
 app.get('/', (req, res) => {
     res.render(path.join(__dirname, '/resource/views/premiers.ejs'), {premiers : even_numbers, style})
+})
+
+//*************AD3 DEMONSTRATION********************//
+app.get('/d3', (req, res) => {
+    res.render(path.join(__dirname, '/resource/views/d3.ejs'), {fixtureData, style})
 })
 
 //*************/info*******************//

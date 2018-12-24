@@ -12,9 +12,9 @@ app.use('/api', apiRoutes)
 
 //*************/info*******************//
 app.get('/info', (req, res) => {
-  res.send('jsau-apiserver')
+    res.send('jsau-apiserver')
 })
 
 //*************************LE SERVEUR*****************************///
-app.listen(8081, () => {
+app.listen(8080, () => {
 })

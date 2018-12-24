@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="stylesheet" type="text/css" href='<%= style.d3 %>'>
+  <title>D3 DEMONSTRATION</title>
+</head>
+<body>
+  <h1>
+    <div style='text-align:center'>
+      D3 DEMONSTRATION JSAU
+    </div>
+  </h1>
+  <div style='text-align:center'>
+    <%-
+    barChartHelper.getBarChart({
+      data: fixtureData,
+      width: 400,
+      height: 300,
+      xAxisLabel: '2018',
+      yAxisLabel: 'Ordonnée',
+      containerId: 'bar-chart-small'
+    })
+    %>
+  </div>
+  <hr>
+  <div style='text-align:center'>
+    <%-
+    barChartHelper.getBarChart({
+      data: fixtureData,
+      width: 800,
+      height: 600,
+      xAxisLabel: '2018',
+      yAxisLabel: 'Ordonnée',
+      containerId: 'bar-chart-large'
+    })
+    %>
+  </div>
+</body>
+</html>
