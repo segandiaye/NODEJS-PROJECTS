@@ -20,20 +20,26 @@ Vous avez trois dossiers,il suffit de se placer à l'une et taper `npm start` pa
 # TEST AVEC CURL
 
 ********************`LISTER LES MATIERES`**********************************************
+# 
 curl GET http://localhost:8080/api/listAll
 # 
 ********************`AJOUTER UNE MATIERE`**********************************************
+# 
 curl -X POST ttp://localhost:8080/api/add -F comment='{"who":"some_one", "desc":"get it"}'
+# 
 curl -H "Content-Type: application/json" -X POST -d '{"name":"SEGA","id":6}' http://localhost:8080/api/add
 # 
 ********************`DTAIL D'UNE MATIERE`**********************************************
+# 
 curl GET http://localhost:8080/api/detail/:id, id=identifiant de la matiere
 
 # 
 ********************`MODIFIER UNE MATIERE`*********************************************
+# 
 curl -X PUT http://localhost:8080/api/update/:id, id=identifiant de la matiere
 # 
 ********************`SUPPRIMER UNE MATIERE`********************************************
+# 
 curl -X DELETE http://localhost:8080/api/delete/:id, id=identifiant de la matiere
 
 
