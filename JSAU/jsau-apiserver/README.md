@@ -5,7 +5,7 @@
 # 
 `Installez les dépendances avec npm install`
 
-Vous avez trois dossiers,il suffit de se placer à l'une et taper `npm start` par lancer une application
+Vous avez 4 dossiers (applications),il suffit de se placer à l'un et taper `npm start` par lancer l'application
 
 - **JSAU-APISERVER**
 - **JSAU-DESKTOP** 
