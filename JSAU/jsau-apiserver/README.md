@@ -34,6 +34,6 @@ curl GET http://localhost:8080/api/detail/:id, id=identifiant de la matiere
 curl -X PUT http://localhost:8080/api/update/:id, id=identifiant de la matiere
 # 
 ********************`SUPPRIMER UNE MATIERE`********************************************
-curl -X DELETE DELETE http://localhost:8080/api/delete/:id, id=identifiant de la matiere
+curl -X DELETE http://localhost:8080/api/delete/:id, id=identifiant de la matiere
 
 
