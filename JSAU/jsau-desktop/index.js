@@ -7,7 +7,7 @@ const dirTree = require('directory-tree');
 
 //*************/info*******************//
 app.get('/info', (req, res) => {
-  res.send('jsau-desktop')
+    res.send('jsau-desktop')
 })
 
 //*************DIRECTORY TREE********************//
@@ -41,7 +41,7 @@ app.get('/etc/ejs', (req, res) => {
 
 /****LES FICHIERS JSON**********/
 app.get('/etc/json', (req, res) => {
-    dirTree('../', {extensions:/\.json$/}, (item, PATH, stats) => {
+    dirTree('../', {extensions:/\.json$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = item.path
         items.name = item.name
@@ -54,7 +54,7 @@ app.get('/etc/json', (req, res) => {
 
 /****LES FICHIERS JS**********/
 app.get('/etc/js', (req, res) => {
-    dirTree('../', {extensions:/\.js$/}, (item, PATH, stats) => {
+    dirTree('../', {extensions:/\.js$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = item.path
         items.name = item.name
@@ -67,7 +67,7 @@ app.get('/etc/js', (req, res) => {
 
 /****LES FICHIERS HTML**********/
 app.get('/etc/html', (req, res) => {
-    dirTree('../', {extensions:/\.html$/}, (item, PATH, stats) => {
+    dirTree('../', {extensions:/\.html$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = item.path
         items.name = item.name
@@ -80,7 +80,7 @@ app.get('/etc/html', (req, res) => {
 
 /****LES FICHIERS CSS**********/
 app.get('/etc/css', (req, res) => {
-    dirTree('../', {extensions:/\.css$/}, (item, PATH, stats) => {
+    dirTree('../', {extensions:/\.css$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = item.path
         items.name = item.name
