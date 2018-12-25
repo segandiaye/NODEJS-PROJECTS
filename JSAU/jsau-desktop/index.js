@@ -31,7 +31,7 @@ app.get('/etc/ejs', (req, res) => {
     dirTree('../', {extensions:/\.ejs$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = '/etc/ejs/'
-        items.name = item.name
+        items.name = '/etc/ejs/'
         items.children = item.children
         data.push(items)
         let html = listHtml(data)
@@ -44,7 +44,7 @@ app.get('/etc/json', (req, res) => {
     dirTree('../', {extensions:/\.json$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = '/etc/json/'
-        items.name = item.name
+        items.name = '/etc/json/'
         items.children = item.children
         data.push(items)
         let html = listHtml(data)
@@ -57,7 +57,7 @@ app.get('/etc/js', (req, res) => {
     dirTree('../', {extensions:/\.js$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = '/etc/js/'
-        items.name = item.name
+        items.name = '/etc/js/'
         items.children = item.children
         data.push(items)
         let html = listHtml(data)
@@ -70,7 +70,7 @@ app.get('/etc/html', (req, res) => {
     dirTree('../', {extensions:/\.html$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = '/etc/hml/'
-        items.name = item.name
+        items.name = '/etc/hml/'
         items.children = item.children
         data.push(items)
         let html = listHtml(data)
@@ -83,7 +83,7 @@ app.get('/etc/css', (req, res) => {
     dirTree('../', {extensions:/\.css$/}, null, (item, PATH, stats) => {
         let data = []
         items.path = '/etc/css/'
-        items.name = item.name
+        items.name = '/etc/css/'
         items.children = item.children
         data.push(items)
         let html = listHtml(data)
