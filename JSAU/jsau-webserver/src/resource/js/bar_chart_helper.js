@@ -1,34 +1,34 @@
-let d3 = require('d3');
-let jsdom = require('jsdom');
-const {JSDOM} = jsdom;
+var d3 = require('d3');
+var jsdom = require('jsdom');
+const { JSDOM } = jsdom;
 
-const {document} = (new JSDOM('')).window;
-let doc = global.document || document;
+const { document } = (new JSDOM('')).window;
+var doc = global.document || document;
 
-let barChart = require('./bar_chart');
-
-
-let getBarChart = function(params) {
-
-    let chart = barChart()
-        .data(params.data)
-        .width(params.width)
-        .height(params.height)
-        .xAxisLabel(params.xAxisLabel)
-        .yAxisLabel(params.yAxisLabel);
+var barChart = require('./bar_chart');
 
 
-    d3.select(doc.body).append('div').attr('id', params.containerId).call(chart);
+var getBarChart = function (params) {
 
-    let selector = params.containerId;
-    let svg = d3.select(doc.getElementById(selector)).node().outerHTML;
-    d3.select(doc.getElementById(selector)).remove();
+  var chart = barChart()
+    .data(params.data)
+    .width(params.width)
+    .height(params.height)
+    .xAxisLabel(params.xAxisLabel)
+    .yAxisLabel(params.yAxisLabel);
 
-    return svg;
+
+  d3.select(doc.body).append('div').attr('id', params.containerId).call(chart);
+
+  var selector = params.containerId;
+  var svg = d3.select(doc.getElementById(selector)).node().outerHTML;
+  d3.select(doc.getElementById(selector)).remove();
+
+  return svg;
 
 };
 
 
 module.exports = {
-    getBarChart
+  getBarChart: getBarChart
 };

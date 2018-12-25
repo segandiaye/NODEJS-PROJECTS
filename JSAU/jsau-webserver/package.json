@@ -33,6 +33,7 @@
     "consolidate": "^0.15.1",
     "cors": "2.8.5",
     "d3": "3.5.17",
+    "directory-tree": "2.2.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "helloworld": "git+ssh://gitlab.mipn.fr/segandiaye/helloworld.git",

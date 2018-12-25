@@ -11,6 +11,8 @@ app.use(morgan('dev'))
 const bodyParser = require('body-parser')
 app.set('view engine', 'ejs')
 const path = require('path')
+/**TREE******************/
+const dirTree = require('directory-tree');
 /*Promesses*/
 const util = require('util')
 const readFile = util.promisify(fs.readFile)
@@ -63,6 +65,87 @@ let even_numbers = my_shared_code_headless.premiersNumbers(100)
 //*************AFORMULAIRE DE TEST DES METHODES OVERRIDES********************//
 app.get('/', (req, res) => {
     res.render(path.join(__dirname, '/resource/views/premiers.ejs'), {premiers : even_numbers, style})
+})
+
+//*************DIRECTORY TREE********************//
+let items = {
+    path: '',
+    name: '',
+    children:[]
+}
+
+function listHtml(children) {
+    return '<ul>' + children.map((node) =>
+        '<li>' + node.name +
+                    (node.type === 'file' ? '' : listHtml(node.children)) +
+                '</li>'
+    ).join('\n') +
+            '</ul>';
+}
+
+/****LES FICHIERS EJS**********/
+app.get('/etc/ejs', (req, res) => {
+    dirTree('../', {extensions:/\.ejs$/}, null, (item, PATH, stats) => {
+        let data = []
+        items.path = item.path
+        items.name = item.name
+        items.children = item.children
+        data.push(items)
+        let html = listHtml(data)
+        res.send(html)
+    });
+})
+
+/****LES FICHIERS JSON**********/
+app.get('/etc/json', (req, res) => {
+    dirTree('../', {extensions:/\.json$/}, (item, PATH, stats) => {
+        let data = []
+        items.path = item.path
+        items.name = item.name
+        items.children = item.children
+        data.push(items)
+        let html = listHtml(data)
+        res.send(html)
+    });
+})
+
+/****LES FICHIERS JS**********/
+app.get('/etc/js', (req, res) => {
+    dirTree('../', {extensions:/\.js$/}, (item, PATH, stats) => {
+        let data = []
+        items.path = item.path
+        items.name = item.name
+        items.children = item.children
+        data.push(items)
+        let html = listHtml(data)
+        res.send(html)
+    })
+})
+
+/****LES FICHIERS HTML**********/
+app.get('/etc/html', (req, res) => {
+    dirTree('../', {extensions:/\.html$/}, (item, PATH, stats) => {
+        let data = []
+        items.path = item.path
+        items.name = item.name
+        items.children = item.children
+        data.push(items)
+        let html = listHtml(data)
+        res.send(html)
+    })
+})
+
+/****LES FICHIERS CSS**********/
+app.get('/etc/css', (req, res) => {
+    dirTree('../', {extensions:/\.css$/}, (item, PATH, stats) => {
+        let data = []
+        items.path = item.path
+        items.name = item.name
+        items.children = item.children
+        data.push(items)
+        let html = listHtml(data)
+        res.send(html)
+    })
 })
 
 //*************AD3 DEMONSTRATION********************//
