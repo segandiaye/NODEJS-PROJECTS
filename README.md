@@ -6,5 +6,11 @@
 # CONSIGNES A LIRE
 
 `NB` Merci de bien lire les readme de chaque application avant de commencer.
-`Tapez npm install dans chaque application` 
+`Tapez npm install ensuite npm start dans chaque application` 
+#
+#Les ports des applications sont :
+-`8080 pour jsau-apiserver`
+-`8081 pour jsau-desktop`
+-`8082 pour jsau-webapp`
+-`8083 pour jsau-webserver`
 
